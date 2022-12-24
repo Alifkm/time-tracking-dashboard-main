@@ -1,0 +1,31 @@
+@use './index' as *;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $soft-orange-self-care;
+  font-family: $font-stack;
+  font-size: 1.125rem;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  overflow-wrap: break-word;
+}
+
+img {
+  max-width: 100%;
+}
+
+input, button {
+  font-family: inherit;
+}
+
+.App {
+  text-align: center;
+}
+
+
