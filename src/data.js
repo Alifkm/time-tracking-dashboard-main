@@ -1,6 +1,8 @@
+const reportData = 
 [
   {
     "title": "Work",
+    "background": './assets/images/icon-work.svg',
     "timeframes": {
       "daily": {
         "current": 5,
@@ -18,6 +20,7 @@
   },
   {
     "title": "Play",
+    "background": require('./assets/images/icon-play.svg'),
     "timeframes": {
       "daily": {
         "current": 1,
@@ -35,6 +38,7 @@
   },
   {
     "title": "Study",
+    "background": require('./assets/images/icon-study.svg'),
     "timeframes": {
       "daily": {
         "current": 0,
@@ -52,6 +56,7 @@
   },
   {
     "title": "Exercise",
+    "background": require('./assets/images/icon-exercise.svg'),
     "timeframes": {
       "daily": {
         "current": 1,
@@ -69,6 +74,7 @@
   },
   {
     "title": "Social",
+    "background": require('./assets/images/icon-social.svg'),
     "timeframes": {
       "daily": {
         "current": 1,
@@ -86,6 +92,7 @@
   },
   {
     "title": "Self Care",
+    "background": require('./assets/images/icon-self-care.svg'),
     "timeframes": {
       "daily": {
         "current": 0,
@@ -102,3 +109,5 @@
     }
   }
 ]
+
+export default reportData;

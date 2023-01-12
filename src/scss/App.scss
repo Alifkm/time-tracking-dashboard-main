@@ -6,8 +6,12 @@
   padding: 0;
 }
 
+html, body, #root {
+  height: 100%;
+}
+
 body {
-  background-color: $soft-orange-self-care;
+  background-color: $very-dark-blue;
   font-family: $font-stack;
   font-size: 1.125rem;
 }
@@ -23,9 +27,315 @@ img {
 input, button {
   font-family: inherit;
 }
-
+  
 .App {
   text-align: center;
+  height: 100%;
+}
+
+.container {
+  @include flexProperty(center, center, column, 1.5em);
+  width: Min(90%, 1200px);
+  margin: 5em auto;
+}
+
+.card {
+  border-radius: 1rem;
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 2px #c0c0c0;
+}
+
+// main card
+.main-card {
+  background-color: $dark-blue;
+
+  #{&}__top-section {
+    @include flexProperty(flex-start, center, row, 1em);
+    padding: 1.5rem 1.5rem;
+    background-color: $blue;
+    border-radius: 1rem;
+  }
+
+  #{&}__img {
+    min-width: 50px;
+  }
+
+  #{&}__img {
+    width: 70px;
+    border: 3px solid white;
+    border-radius: 100%;
+  }
+
+  #{&}__profile-wrapper {
+    text-align: left;
+  }
+
+  #{&}__header-text {
+    color: $pale-blue;
+    font-size: 1rem;
+  }
+
+  #{&}__name {
+    color: white;
+    font-weight: 300;
+    margin-top: 0.25em;
+  }
+
+  #{&}__bottom-section {
+    @include flexProperty(space-between, center, row, null);
+    padding: 1.5rem 2rem;
+    color: $desaturated-blue;
+  }
+  
+  #{&}__period-time:hover {
+    cursor: pointer;
+    color: white;
+  }
+
+}
+
+.active {
+  color: white;
 }
 
 
+.small-card {
+
+  #{&}__icon-wrapper  {
+    @include flexProperty(flex-end, top, null, null);
+    overflow: hidden;
+  }
+  
+  #{&}__icon {
+    margin-inline: 1em;
+  }
+
+  #{&}__text-wrapper {
+    @include flexProperty(center, space-between, column, 0.5em);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    background-color: $dark-blue;
+  }
+
+  #{&}__category-wrapper, #{&}__time-wrapper {
+    @include flexProperty(space-between, center, null, null);
+    color: white;
+  }
+
+  #{&}__category {
+    font-weight: 500;
+  }
+
+  #{&}__hour {
+    font-weight: 300;
+    font-size: 2rem;
+  }
+
+  #{&}__previous-info {
+    color: $desaturated-blue;
+    font-size: 1rem;
+  }
+
+}
+
+.small-card:nth-of-type(2) {
+  background-color: $light-red-work;
+}
+
+.small-card:nth-of-type(3) {
+  background-color: $soft-blue-play;
+}
+
+.small-card:nth-of-type(4) {
+  background-color: $light-red-study;
+}
+
+.small-card:nth-of-type(5) {
+  background-color: $lime-green-exercise;
+}
+
+.small-card:nth-of-type(6) {
+  background-color: $violet-social;
+}
+
+.small-card:nth-of-type(7) {
+  background-color: $soft-orange-self-care;
+}
+
+.Work {
+  margin-top: -0.6em;
+  margin-bottom: -1.7em;
+}
+
+.Play {
+  margin-top: -0.25em;
+  margin-bottom: -1.9em;
+}
+
+.Study {
+  margin-top: -0.5em;
+  margin-bottom: -1.9em;
+
+}
+
+.Exercise {
+  margin-bottom: -0.9em;
+
+}
+
+.Social {
+  margin-top: -0.9em;
+  margin-bottom: -2.6em;
+
+}
+
+.Self, .Care {
+  margin-top: -0.75em;
+  margin-bottom: -1em;
+}
+
+.footer {
+  max-width: 90%;
+  margin-inline: auto;
+  padding-bottom: 0.5em;
+  color: $soft-blue-play;
+
+  #{&}__link {
+    color: white;
+    margin-bottom: 200px;
+  }
+}
+
+.loader {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  border: 5px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 5px solid $blue;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+@include media-lg {
+  .App {
+    @include flexProperty(center, center, column, 1em);
+  }
+
+ .container {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+    "mainCard cardWork cardPlay cardStudy"
+    "mainCard cardExercise cardSocial cardSelfCare"
+    ;
+    place-items: center;
+  } 
+
+ .main-card {
+    grid-area: mainCard;
+
+    #{&}__top-section {
+      @include flexProperty(center, flex-start, column, 2em);
+      flex-direction: column;
+      padding-block: 2.25rem;
+    }
+
+    #{&}__img {
+      width: 80px;
+    }
+
+    #{&}__name {
+      font-size: 2.75rem;
+      margin-bottom: 0.9em;
+    }
+
+    #{&}__bottom-section {
+      @include flexProperty(flex-start, flex-start, column, 1em);
+    }
+  }
+
+  .small-card {
+    max-width: 275px;
+
+    #{&}__category-wrapper {
+      margin-bottom: 1em;
+    }
+
+    #{&}__text-wrapper {
+      height: 10%;
+      padding: 2rem;
+    }
+
+    #{&}__text-wrapper:hover {
+      cursor: pointer;
+      background-color: lighten($dark-blue, 10%);
+    }
+
+    #{&}__icon--ellipsis:hover {
+      cursor: pointer;
+      filter: brightness(150%);
+    }
+
+    #{&}__time-wrapper {
+      @include flexProperty(flex-start, flex-start, column, 0.5em);
+    }
+
+    #{&}__hour {
+      padding: 0;
+      font-size: 3rem;
+
+    }
+  }
+
+  .Work {
+    margin-top: -0.6em;
+    margin-bottom: -1.25em;
+  }
+
+  .Play {
+    margin-top: -0.25em;
+    margin-bottom: -1.5em;
+  }
+
+  .Study {
+    margin-top: -0.5em;
+    margin-bottom: -1.5em;
+
+  }
+
+  .Exercise {
+    margin-bottom: -0.5em;
+  }
+
+  .Social {
+    margin-top: -0.9em;
+    margin-bottom: -2.1em;
+
+  }
+
+  .Self, .Care {
+    margin-top: -0.75em;
+    margin-bottom: -0.5em;
+  }
+}
