@@ -18,12 +18,7 @@ function App() {
   const [time, setTime] = useState("weekly");
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    console.log(isLoading);
-  }, [])
-
   const getTime = (event) => {
-
     const timeButtons = document.querySelectorAll('.main-card__period-time');
 
     timeButtons.forEach((timeButton) => {
@@ -75,6 +70,7 @@ function App() {
                 {
                   time === "daily" ? report.timeframes.daily.previous : time === "weekly" ? report.timeframes.weekly.previous : report.timeframes.monthly.previous
                 }
+                lastTimeText = {time === "daily" ? "day" : time === "weekly" ? "week" : "month"}
                 loading={isLoading}
             />
           ))

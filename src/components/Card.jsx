@@ -14,7 +14,7 @@ const Card = (props) => {
         </div>
         <div className="small-card__time-wrapper">
           <h2 className="small-card__hour">{props.currentTime}hrs</h2>
-          <p className="small-card__previous-info">Last week - {props.lastTime}hrs</p>
+          <p className="small-card__previous-info">Last {props.lastTimeText} - {props.lastTime}hrs</p>
         </div>
       </div>
     </section>
